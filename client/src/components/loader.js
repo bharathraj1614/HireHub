@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 export default async function getJobs() {
   const fetchJobs = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/jobs");
+      const res = await axios.get("/api/jobs");
       return res.data;
     } catch (err) {
       console.error(err);

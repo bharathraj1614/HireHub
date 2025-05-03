@@ -72,10 +72,7 @@ const CreateJob = ({ setJobs, setIsCreateJob }) => {
         createdAt: new Date().toISOString(),
       };
 
-      const response = await axios.post(
-        "http://localhost:5000/api/jobs",
-        jobData
-      );
+      const response = await axios.post("/api/jobs", jobData);
 
       setJobs((jobs) => [...jobs, response.data]);
 
