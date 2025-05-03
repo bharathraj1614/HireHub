@@ -2,7 +2,7 @@ import "rc-slider/assets/index.css";
 import Slider from "rc-slider";
 import { useEffect, useState } from "react";
 
-const JobFilters = ({ allJobs, setJobs }) => {
+const JobFilters = ({ allJobs, setJobs, jobs }) => {
   const [salaryRange, setSalaryRange] = useState([0, 500]);
 
   const [query, setQuery] = useState("");
@@ -16,7 +16,11 @@ const JobFilters = ({ allJobs, setJobs }) => {
   useEffect(() => {
     if (!allJobs || allJobs.length === 0) return;
 
-    let filteredJobs = [...allJobs];
+    let filteredJobs = [...allJobs, ...jobs];
+
+    filteredJobs = [
+      ...new Map(filteredJobs.map((job) => [job.id, job])).values(),
+    ];
 
     if (query) {
       filteredJobs = filteredJobs.filter(
