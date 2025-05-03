@@ -182,9 +182,9 @@ const CreateJob = ({ setJobs, setIsCreateJob }) => {
               } w-1/2 border p-2`}
             />
           </div>
-          {(errors.salaryMax.message || errors.salaryMin.message) && (
+          {(errors.salaryMax?.message || errors.salaryMin?.message) && (
             <p className="text-red-500">
-              {errors.salaryMax.message || errors.salaryMin.message}
+              {errors.salaryMax?.message || errors.salaryMin?.message}
             </p>
           )}
         </div>
