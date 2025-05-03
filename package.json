@@ -1,5 +1,5 @@
 {
-  "name": "mern-job-management",
+  "name": "hire-hub",
   "version": "1.0.0",
   "scripts": {
     "install-client": "cd client && npm install",
