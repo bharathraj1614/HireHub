@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import CreateJob from "./CreateJob";
 import { createContext } from "react";
 import { useAuthProvider } from "../Pages/FakeAuthContextProvider";
+import { useRevalidator } from "react-router-dom";
+
+const revalidator = useRevalidator();
 
 export const JobsContext = createContext();
 
@@ -12,6 +15,9 @@ function AppLayout() {
   const { isAuthenticated } = useAuthProvider();
 
   const allJobs = useLoaderData();
+  function handleRefresh() {
+    revalidator.revalidate();
+  }
 
   const [jobs, setJobs] = useState(allJobs);
 
@@ -46,6 +52,7 @@ function AppLayout() {
                   setIsCreateJob={setIsCreateJob}
                   jobs={jobs}
                   setJobs={setJobs}
+                  handleRefresh={handleRefresh}
                 />
               </div>
             </div>

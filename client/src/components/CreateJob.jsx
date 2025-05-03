@@ -4,7 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { redirect } from "react-router-dom";
 
 const schema = yup.object({
   title: yup
@@ -54,7 +53,7 @@ const schema = yup.object({
     .min(50, "Description must be at least 50 characters long"),
 });
 
-const CreateJob = ({ setJobs, setIsCreateJob }) => {
+const CreateJob = ({ handleRefresh, setJobs, setIsCreateJob }) => {
   const {
     register,
     handleSubmit,
@@ -79,7 +78,7 @@ const CreateJob = ({ setJobs, setIsCreateJob }) => {
 
       toast.success("Job posted successfully!");
       setIsCreateJob(false);
-      return redirect("/");
+      handleRefresh();
     } catch (err) {
       toast.error("Failed to post job." + err);
     }
