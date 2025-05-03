@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --height-screen: 100dvh;
+}
+
 @layer components {
   input,
   textarea {
