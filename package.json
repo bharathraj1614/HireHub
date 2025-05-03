@@ -1,0 +1,14 @@
+{
+  "name": "mern-job-management",
+  "version": "1.0.0",
+  "scripts": {
+    "install-client": "cd client && npm install",
+    "install-server": "cd server && npm install",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start"
+  },
+  "dependencies": {
+    "mongodb": "^6.16.0",
+    "vite": "^6.3.4"
+  }
+}

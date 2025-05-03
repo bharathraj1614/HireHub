@@ -1,0 +1,37 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* CSS Modules feature */
+.nav a:global(.active) {
+  color: purple;
+}
+
+a.ctaLink:link,
+a.ctaLink:visited {
+  background: linear-gradient(to top, rgb(146, 1, 182), rgb(145, 12, 223));
+  color: white;
+  padding: 0.6rem 1.9rem;
+  border-radius: 999px;
+  text-decoration: none; /* optional: removes underline */
+  display: inline-block; /* optional: makes padding work better */
+}
