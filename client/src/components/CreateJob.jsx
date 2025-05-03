@@ -76,10 +76,10 @@ const CreateJob = ({ setJobs, setIsCreateJob }) => {
       const response = await axios.post("/api/jobs", jobData);
 
       setJobs((jobs) => [...jobs, response.data]);
-      redirect("/");
 
       toast.success("Job posted successfully!");
       setIsCreateJob(false);
+      return redirect("/");
     } catch (err) {
       toast.error("Failed to post job." + err);
     }
@@ -182,9 +182,12 @@ const CreateJob = ({ setJobs, setIsCreateJob }) => {
               } w-1/2 border p-2`}
             />
           </div>
-          <p className="text-red-500">
-            {errors.salaryMax.message || errors.salaryMin.message}
-          </p>
+          {errors.salaryMax ||
+            (errors.salaryMin && (
+              <p className="text-red-500">
+                {errors.salaryMax.message || errors.salaryMin.message}
+              </p>
+            ))}
         </div>
 
         <div className="space-y-2">
