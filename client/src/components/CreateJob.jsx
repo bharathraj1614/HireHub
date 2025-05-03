@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { redirect } from "react-router-dom";
 
 const schema = yup.object({
   title: yup
@@ -75,6 +76,7 @@ const CreateJob = ({ setJobs, setIsCreateJob }) => {
       const response = await axios.post("/api/jobs", jobData);
 
       setJobs((jobs) => [...jobs, response.data]);
+      redirect("/");
 
       toast.success("Job posted successfully!");
       setIsCreateJob(false);
