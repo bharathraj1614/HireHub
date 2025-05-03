@@ -182,6 +182,9 @@ const CreateJob = ({ setJobs, setIsCreateJob }) => {
               } w-1/2 border p-2`}
             />
           </div>
+          <p className="text-red-500">
+            {errors.salaryMax.message || errors.salaryMin.message}
+          </p>
         </div>
 
         <div className="space-y-2">
