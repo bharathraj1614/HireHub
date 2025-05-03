@@ -31,8 +31,8 @@ const schema = yup.object({
   salaryMin: yup
     .number()
     .required("Minimum salary is required")
-    .min(10000, "Minimum salary must be at least ₹10,000")
-    .max(9999999, "Minimum salary must not exceed ₹500,000"),
+    .min(0, "Minimum salary must be at least ₹0")
+    .max(9999999, "Minimum salary must not exceed ₹99,99,999"),
 
   salaryMax: yup
     .number()
@@ -41,7 +41,7 @@ const schema = yup.object({
       yup.ref("salaryMin"),
       "Maximum salary must be greater than Minimum salary"
     )
-    .max(10000000, "Maximum salary must not exceed ₹1,000,000"),
+    .max(10000000, "Maximum salary must not exceed ₹100,00,000"),
 
   applicationDeadline: yup
     .date()
