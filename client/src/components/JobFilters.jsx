@@ -19,7 +19,7 @@ const JobFilters = ({ allJobs, setJobs, jobs }) => {
     let filteredJobs = [...allJobs, ...jobs];
 
     filteredJobs = [
-      ...new Map(filteredJobs.map((job) => [job.id, job])).values(),
+      ...new Map(filteredJobs.map((job) => [job._id, job])).values(),
     ];
 
     if (query) {
